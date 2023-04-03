@@ -1,0 +1,8 @@
+{{page-title "Reservation"}}
+{{outlet}}
+
+<ul>
+  {{#each model as |spot|}}
+    <li>{{spot.vnum}} - {{spot.vtype}} - {{spot.status}}</li>
+  {{/each}}
+</ul>
