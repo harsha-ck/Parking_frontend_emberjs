@@ -1,8 +1,22 @@
-{{page-title "Reservation"}}
-{{outlet}}
-
-<ul>
-  {{#each model as |spot|}}
-    <li>{{spot.vnum}} - {{spot.vtype}} - {{spot.status}}</li>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Type</th>
+    <th>Number</th>
+    <th>Status</th>
+    <th> user id</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each this.model as |spot|}}
+    <tr>
+      <td>{{spot.id}}</td>
+      <td>{{spot.vtype}}</td>
+      <td>{{spot.vnum}}</td>
+      <td>{{spot.status}}</td>
+      <td>{{spot.user_id}}</td>
+    </tr>
   {{/each}}
-</ul>
+  </tbody>
+</table>

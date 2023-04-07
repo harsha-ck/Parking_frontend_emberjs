@@ -1,0 +1,19 @@
+<form onsubmit= {{action this.saveUser }}>
+  <div>
+    Email: {{input type="email" value=this.email}}
+
+  </div>
+  <div>
+
+    Name: {{input type="text" value=this.name}}
+  </div>
+  <div>
+
+    Password: {{input type="password" value=this.password }}
+  </div>
+  <div>
+    Confirm Password: {{input type="password" value=this.passwordConfirmation}}
+  </div>
+  <button type="submit">Save</button>
+
+</form>

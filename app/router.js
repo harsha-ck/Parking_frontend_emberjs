@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from 'park/config/environment';
+import config from 'parking/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
@@ -7,6 +7,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('spot');
   this.route('reservation');
+  this.route('user-new');
+  this.route('user');
 });

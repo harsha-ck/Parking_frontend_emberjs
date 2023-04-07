@@ -1,6 +1,6 @@
 'use strict';
 
-define("park/tests/helpers/index", ["exports", "ember-qunit"], function (_exports, _emberQunit) {
+define("parking/tests/helpers/index", ["exports", "ember-qunit"], function (_exports, _emberQunit) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -44,18 +44,59 @@ define("park/tests/helpers/index", ["exports", "ember-qunit"], function (_export
     // Additional setup for unit tests can be done here.
   }
 });
-define("park/tests/test-helper", ["park/app", "park/config/environment", "qunit", "@ember/test-helpers", "qunit-dom", "ember-qunit"], function (_app, _environment, QUnit, _testHelpers, _qunitDom, _emberQunit) {
+define("parking/tests/integration/components/user-new-test", ["@ember/template-factory", "qunit", "parking/tests/helpers", "@ember/test-helpers"], function (_templateFactory, _qunit, _helpers, _testHelpers) {
   "use strict";
 
-  0; //eaimeta@70e063a35619d71f0,"park/app",0,"park/config/environment",0,"qunit",0,"@ember/test-helpers",0,"qunit-dom",0,"ember-qunit"eaimeta@70e063a35619d71f
+  0; //eaimeta@70e063a35619d71f0,"qunit",0,"parking/tests/helpers",0,"@ember/test-helpers",0,"ember-cli-htmlbars"eaimeta@70e063a35619d71f
+  (0, _qunit.module)('Integration | Component | user-new', function (hooks) {
+    (0, _helpers.setupRenderingTest)(hooks);
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+
+      await (0, _testHelpers.render)((0, _templateFactory.createTemplateFactory)(
+      /*
+        <UserNew />
+      */
+      {
+        "id": "Ev8ST9yj",
+        "block": "[[[8,[39,0],null,null,null]],[],false,[\"user-new\"]]",
+        "moduleName": "/home/harshakottur/Documents/emberjs_project/Parking_frontend_emberjs/parking/tests/integration/components/user-new-test.js",
+        "isStrictMode": false
+      }));
+      assert.dom(this.element).hasText('');
+
+      // Template block usage:
+      await (0, _testHelpers.render)((0, _templateFactory.createTemplateFactory)(
+      /*
+        
+            <UserNew>
+              template block text
+            </UserNew>
+          
+      */
+      {
+        "id": "QtMgixLb",
+        "block": "[[[1,\"\\n      \"],[8,[39,0],null,null,[[\"default\"],[[[[1,\"\\n        template block text\\n      \"]],[]]]]],[1,\"\\n    \"]],[],false,[\"user-new\"]]",
+        "moduleName": "/home/harshakottur/Documents/emberjs_project/Parking_frontend_emberjs/parking/tests/integration/components/user-new-test.js",
+        "isStrictMode": false
+      }));
+      assert.dom(this.element).hasText('template block text');
+    });
+  });
+});
+define("parking/tests/test-helper", ["parking/app", "parking/config/environment", "qunit", "@ember/test-helpers", "qunit-dom", "ember-qunit"], function (_app, _environment, QUnit, _testHelpers, _qunitDom, _emberQunit) {
+  "use strict";
+
+  0; //eaimeta@70e063a35619d71f0,"parking/app",0,"parking/config/environment",0,"qunit",0,"@ember/test-helpers",0,"qunit-dom",0,"ember-qunit"eaimeta@70e063a35619d71f
   (0, _testHelpers.setApplication)(_app.default.create(_environment.default.APP));
   (0, _qunitDom.setup)(QUnit.assert);
   (0, _emberQunit.start)();
 });
-define("park/tests/unit/adapters/application-test", ["qunit", "park/tests/helpers"], function (_qunit, _helpers) {
+define("parking/tests/unit/adapters/application-test", ["qunit", "parking/tests/helpers"], function (_qunit, _helpers) {
   "use strict";
 
-  0; //eaimeta@70e063a35619d71f0,"qunit",0,"park/tests/helpers"eaimeta@70e063a35619d71f
+  0; //eaimeta@70e063a35619d71f0,"qunit",0,"parking/tests/helpers"eaimeta@70e063a35619d71f
   (0, _qunit.module)('Unit | Adapter | application', function (hooks) {
     (0, _helpers.setupTest)(hooks);
 
@@ -66,10 +107,10 @@ define("park/tests/unit/adapters/application-test", ["qunit", "park/tests/helper
     });
   });
 });
-define("park/tests/unit/models/reservation-test", ["qunit", "park/tests/helpers"], function (_qunit, _helpers) {
+define("parking/tests/unit/models/reservation-test", ["qunit", "parking/tests/helpers"], function (_qunit, _helpers) {
   "use strict";
 
-  0; //eaimeta@70e063a35619d71f0,"qunit",0,"park/tests/helpers"eaimeta@70e063a35619d71f
+  0; //eaimeta@70e063a35619d71f0,"qunit",0,"parking/tests/helpers"eaimeta@70e063a35619d71f
   (0, _qunit.module)('Unit | Model | reservation', function (hooks) {
     (0, _helpers.setupTest)(hooks);
 
@@ -81,47 +122,80 @@ define("park/tests/unit/models/reservation-test", ["qunit", "park/tests/helpers"
     });
   });
 });
-define("park/tests/unit/models/spot-test", ["qunit", "park/tests/helpers"], function (_qunit, _helpers) {
+define("parking/tests/unit/models/user-test", ["qunit", "parking/tests/helpers"], function (_qunit, _helpers) {
   "use strict";
 
-  0; //eaimeta@70e063a35619d71f0,"qunit",0,"park/tests/helpers"eaimeta@70e063a35619d71f
-  (0, _qunit.module)('Unit | Model | spot', function (hooks) {
+  0; //eaimeta@70e063a35619d71f0,"qunit",0,"parking/tests/helpers"eaimeta@70e063a35619d71f
+  (0, _qunit.module)('Unit | Model | user', function (hooks) {
     (0, _helpers.setupTest)(hooks);
 
     // Replace this with your real tests.
     (0, _qunit.test)('it exists', function (assert) {
       let store = this.owner.lookup('service:store');
-      let model = store.createRecord('spot', {});
+      let model = store.createRecord('user', {});
       assert.ok(model);
     });
   });
 });
-define("park/tests/unit/routes/reservations-test", ["qunit", "park/tests/helpers"], function (_qunit, _helpers) {
+define("parking/tests/unit/routes/reservation-test", ["qunit", "parking/tests/helpers"], function (_qunit, _helpers) {
   "use strict";
 
-  0; //eaimeta@70e063a35619d71f0,"qunit",0,"park/tests/helpers"eaimeta@70e063a35619d71f
-  (0, _qunit.module)('Unit | Route | reservations', function (hooks) {
+  0; //eaimeta@70e063a35619d71f0,"qunit",0,"parking/tests/helpers"eaimeta@70e063a35619d71f
+  (0, _qunit.module)('Unit | Route | reservation', function (hooks) {
     (0, _helpers.setupTest)(hooks);
     (0, _qunit.test)('it exists', function (assert) {
-      let route = this.owner.lookup('route:reservations');
+      let route = this.owner.lookup('route:reservation');
       assert.ok(route);
     });
   });
 });
-define("park/tests/unit/routes/spots-test", ["qunit", "park/tests/helpers"], function (_qunit, _helpers) {
+define("parking/tests/unit/routes/user-new-test", ["qunit", "parking/tests/helpers"], function (_qunit, _helpers) {
   "use strict";
 
-  0; //eaimeta@70e063a35619d71f0,"qunit",0,"park/tests/helpers"eaimeta@70e063a35619d71f
-  (0, _qunit.module)('Unit | Route | spots', function (hooks) {
+  0; //eaimeta@70e063a35619d71f0,"qunit",0,"parking/tests/helpers"eaimeta@70e063a35619d71f
+  (0, _qunit.module)('Unit | Route | user-new', function (hooks) {
     (0, _helpers.setupTest)(hooks);
     (0, _qunit.test)('it exists', function (assert) {
-      let route = this.owner.lookup('route:spots');
+      let route = this.owner.lookup('route:user-new');
       assert.ok(route);
     });
   });
 });
-define('park/config/environment', [], function() {
-  var prefix = 'park';
+define("parking/tests/unit/routes/user-test", ["qunit", "parking/tests/helpers"], function (_qunit, _helpers) {
+  "use strict";
+
+  0; //eaimeta@70e063a35619d71f0,"qunit",0,"parking/tests/helpers"eaimeta@70e063a35619d71f
+  (0, _qunit.module)('Unit | Route | user', function (hooks) {
+    (0, _helpers.setupTest)(hooks);
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:user');
+      assert.ok(route);
+    });
+  });
+});
+define("parking/tests/unit/serializers/application-test", ["qunit", "parking/tests/helpers"], function (_qunit, _helpers) {
+  "use strict";
+
+  0; //eaimeta@70e063a35619d71f0,"qunit",0,"parking/tests/helpers"eaimeta@70e063a35619d71f
+  (0, _qunit.module)('Unit | Serializer | application', function (hooks) {
+    (0, _helpers.setupTest)(hooks);
+
+    // Replace this with your real tests.
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let serializer = store.serializerFor('application');
+      assert.ok(serializer);
+    });
+    (0, _qunit.test)('it serializes records', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let record = store.createRecord('application', {});
+      let serializedRecord = record.serialize();
+      assert.ok(serializedRecord);
+    });
+  });
+});
+define('parking/config/environment', [], function() {
+  var prefix = 'parking';
 try {
   var metaName = prefix + '/config/environment';
   var rawConfig = document.querySelector('meta[name="' + metaName + '"]').getAttribute('content');
@@ -139,6 +213,6 @@ catch(err) {
 
 });
 
-require('park/tests/test-helper');
+require('parking/tests/test-helper');
 EmberENV.TESTS_FILE_LOADED = true;
 //# sourceMappingURL=tests.map

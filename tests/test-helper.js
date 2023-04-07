@@ -1,5 +1,5 @@
-import Application from 'park/app';
-import config from 'park/config/environment';
+import Application from 'parking/app';
+import config from 'parking/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

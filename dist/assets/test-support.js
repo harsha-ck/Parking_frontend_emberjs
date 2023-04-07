@@ -8,7 +8,7 @@
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   4.11.0
+ * @version   4.12.0
  */
 /* eslint-disable no-var */
 /* globals global globalThis self */
@@ -6697,9 +6697,9 @@ define("@ember/test-helpers/setup-rendering-context", ["exports", "@embroider/ma
     {{outlet}}
   */
   {
-    "id": "fZ0m/xhR",
+    "id": "1ibvyw3M",
     "block": "[[[46,[28,[37,1],null,null],null,null,null]],[],false,[\"component\",\"-outlet\"]]",
-    "moduleName": "/home/harshakottur/Documents/emberjs_project/Park/@ember/test-helpers/setup-rendering-context.js",
+    "moduleName": "/home/harshakottur/Documents/emberjs_project/Parking_frontend_emberjs/@ember/test-helpers/setup-rendering-context.js",
     "isStrictMode": false
   });
   const EMPTY_TEMPLATE = (0, _templateFactory.createTemplateFactory)(
@@ -6707,9 +6707,9 @@ define("@ember/test-helpers/setup-rendering-context", ["exports", "@embroider/ma
     
   */
   {
-    "id": "3801SzH3",
+    "id": "kgKQJ9yf",
     "block": "[[],[],false,[]]",
-    "moduleName": "/home/harshakottur/Documents/emberjs_project/Park/@ember/test-helpers/setup-rendering-context.js",
+    "moduleName": "/home/harshakottur/Documents/emberjs_project/Parking_frontend_emberjs/@ember/test-helpers/setup-rendering-context.js",
     "isStrictMode": false
   });
   const INVOKE_PROVIDED_COMPONENT = (0, _templateFactory.createTemplateFactory)(
@@ -6717,9 +6717,9 @@ define("@ember/test-helpers/setup-rendering-context", ["exports", "@embroider/ma
     <this.ProvidedComponent />
   */
   {
-    "id": "C3XQNBb7",
+    "id": "DZsOsvK0",
     "block": "[[[8,[30,0,[\"ProvidedComponent\"]],null,null,null]],[],false,[]]",
-    "moduleName": "/home/harshakottur/Documents/emberjs_project/Park/@ember/test-helpers/setup-rendering-context.js",
+    "moduleName": "/home/harshakottur/Documents/emberjs_project/Parking_frontend_emberjs/@ember/test-helpers/setup-rendering-context.js",
     "isStrictMode": false
   });
   // eslint-disable-next-line require-jsdoc
@@ -7293,6 +7293,34 @@ define("ember-cli-test-loader/test-support/index", ["exports"], function (_expor
   }
   _exports.default = TestLoader;
   ;
+});
+define("ember-data/test-support/index", ["exports", "@embroider/macros/runtime", "@ember/debug", "@ember/test-helpers", "qunit"], function (_exports, _runtime, _debug, _testHelpers, QUnit) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.render = render;
+  0; //eaimeta@70e063a35619d71f0,"@ember/debug",0,"@ember/test-helpers",0,"qunit",0,"@ember-data/env"eaimeta@70e063a35619d71f
+  /*
+    Temporary replacement for the render test helper
+    which we will deprecate in EmberData 5.0, this allows
+    an app to incrementally migrate to tests that render async
+    relationships in stages with potential for tests in between.
+  */
+  async function render(template) {
+    await (0, _testHelpers.render)(template);
+    const owner = QUnit.config.current.testEnvironment.owner;
+    const pending = owner.lookup('service:store')._getAllPending();
+
+    // this should only be necessary in production tests
+    // where @ember/test-waiters is deactivated :()
+    if ((0, _runtime.macroCondition)((0, _runtime.config)("/home/harshakottur/Documents/emberjs_project/Parking_frontend_emberjs/node_modules/ember-data").env.PRODUCTION)) {
+      (true && !(pending.length) && (0, _debug.assert)(`No pending requests exist in this test, use \`import { render } from '@ember/test-helpers';\``, pending.length));
+      await pending;
+      await (0, _testHelpers.settled)();
+    }
+  }
 });
 define("ember-page-title/test-support/get-page-title", ["exports"], function (_exports) {
   "use strict";

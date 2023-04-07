@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   const ENV = {
-    modulePrefix: 'park',
+    modulePrefix: 'parking',
     environment,
     rootURL: '/',
     locationType: 'history',
